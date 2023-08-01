@@ -11,7 +11,6 @@ function App() {
 
   return (
     <>
-      <h1>Some change</h1>
       <Navigation />
       <NewsList newsList={newsList} />
       <Footer />
