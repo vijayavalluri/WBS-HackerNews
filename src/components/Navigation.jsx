@@ -21,6 +21,9 @@ const Navigation = ({ handleSearchChange }) => {
   const [searchBarValue, setSearchBarValue] = useState("");
   const navShadow = mobileNavDisplay === "none" ? "md" : ["none", "none", "md", "md"];
 
+  // colors for lazyness
+  const bgColor = "gray.100";
+
   // navigation items
   const navItems = [
     { title: "React", searchTerm: "React" },
@@ -57,6 +60,7 @@ const Navigation = ({ handleSearchChange }) => {
 
     if (event.key === "Escape") {
       setSearchBarValue("");
+      event.currentTarget.blur();
     }
   };
 
@@ -68,6 +72,8 @@ const Navigation = ({ handleSearchChange }) => {
         navItems.map((navItem) => (
           <Button
             key={navItem.title}
+            colorScheme="teal"
+            variant={["solid", "solid", "outline", "outline"]}
             w={["100%", "100%", "auto", "auto"]}
             onClick={() => handleSearchTopicChange(navItem.searchTerm)}
           >
@@ -92,6 +98,10 @@ const Navigation = ({ handleSearchChange }) => {
       value={searchBarValue}
       onChange={handleSearchBar}
       onKeyDown={handleSearchSubmit}
+      bgColor="white"
+      borderColor="teal.600"
+      focusBorderColor="teal.400"
+      color="teal.400"
     />
   );
 
@@ -106,9 +116,10 @@ const Navigation = ({ handleSearchChange }) => {
         padding={[".5rem", ".5rem", "1rem", "1rem"]}
         gap={[0, 0, "1rem", "1rem"]}
         boxShadow={navShadow}
+        bgColor={bgColor}
       >
         <Box>
-          <Text bgGradient="linear(to-l, #7928CA, #FF0080)" bgClip="text" fontSize="lg" fontWeight="extrabold">
+          <Text bgGradient="linear(to-l, #4FD1C5, #1D4044 )" bgClip="text" fontSize="lg" fontWeight="extrabold">
             WBS HackerNews
           </Text>
         </Box>
@@ -131,6 +142,7 @@ const Navigation = ({ handleSearchChange }) => {
           display={["flex", "flex", "none", "none"]}
           onClick={toggleMobileNav}
           margin="0"
+          colorScheme="teal"
         />
       </Flex>
       {/* Mobile Nav */}
@@ -142,6 +154,9 @@ const Navigation = ({ handleSearchChange }) => {
         gap="0.25rem"
         padding={[".5rem", ".5rem", "1rem", "1rem"]}
         boxShadow="md"
+        position="sticky"
+        top="4rem"
+        bgColor={bgColor}
       >
         {navElements}
         {searchBar}

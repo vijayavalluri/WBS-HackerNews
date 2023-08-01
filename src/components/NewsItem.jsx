@@ -1,11 +1,14 @@
+import { Flex } from "@chakra-ui/react";
+
 /* eslint-disable react/prop-types */
 const NewsItem = ({ newsItem }) => {
   return (
-    <div>
+    <Flex flexDirection="column">
       <a href={newsItem.url} target="_blank" rel="noreferrer">
         {newsItem.title}
       </a>
-    </div>
+      <p>More text</p>
+    </Flex>
   );
 };
 
