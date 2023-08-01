@@ -88,16 +88,14 @@ const Navigation = ({ handleSearchChange }) => {
     <Input
       type="text"
       placeholder="Search..."
-      maxW={["100%", "100%", "15%", "15%"]}
+      maxW={["100%", "100%", "20%", "20%"]}
       value={searchBarValue}
       onChange={handleSearchBar}
       onKeyDown={handleSearchSubmit}
     />
   );
 
-  // DEBUG
-  console.log(searchBarValue);
-
+  // render
   return (
     <>
       <Flex
