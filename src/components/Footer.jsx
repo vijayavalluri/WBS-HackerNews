@@ -1,6 +1,7 @@
 import { Box, Flex, Link } from "@chakra-ui/react";
 
 const Footer = () => {
+  // render
   return (
     <Flex
       fontSize=".75rem"
