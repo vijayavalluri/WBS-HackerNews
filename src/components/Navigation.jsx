@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import {
   Alert,
   AlertDescription,
@@ -35,8 +34,7 @@ const Navigation = ({ handleSearchChange }) => {
 
   // handle change of searchTearm
   const handleSearchTopicChange = (topic) => {
-    console.log(`Search for: ${topic}`);
-    //handleSearchChange(topic);
+    handleSearchChange(topic);
   };
 
   // search bar handler
@@ -47,9 +45,7 @@ const Navigation = ({ handleSearchChange }) => {
   // submit search
   const handleSearchSubmit = (event) => {
     if (event.key === "Enter" && searchBarValue) {
-      // TODO: submit needs to be handled here
-      console.log("Submitted: ", searchBarValue);
-      //handleSearchChange(searchBarValue);
+      handleSearchChange(searchBarValue);
       setSearchBarValue("");
     }
 
@@ -113,6 +109,7 @@ const Navigation = ({ handleSearchChange }) => {
         boxShadow={navShadow}
         bgColor={bgColor}
       >
+        {/* "Logo" */}
         <Box>
           <Text bgGradient="linear(to-l, #4FD1C5, #1D4044 )" bgClip="text" fontSize="lg" fontWeight="extrabold">
             WBS HackerNews

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Button,
   Flex,
@@ -21,7 +22,6 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 
-/* eslint-disable react/prop-types */
 const NewsItem = ({ newsItem }) => {
   // state
   const { isOpen, onOpen, onClose } = useDisclosure();
