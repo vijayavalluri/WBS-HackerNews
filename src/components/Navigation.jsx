@@ -12,13 +12,14 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
 const Navigation = ({ handleSearchChange }) => {
   // state and derived variables
-  const [mobileNavDisplay, setMobileNavDisplay] = useState("none");
+  const [navIsOpen, setNavIsOpen] = useState(false);
   const [searchBarValue, setSearchBarValue] = useState("");
+  const mobileNavDisplay = navIsOpen ? "flex" : "none";
   const navShadow = mobileNavDisplay === "none" ? "md" : ["none", "none", "md", "md"];
 
   // colors for lazyness
@@ -31,12 +32,6 @@ const Navigation = ({ handleSearchChange }) => {
     { title: "CSS", searchTerm: "CSS" },
     { title: "ChatGPT", searchTerm: "ChatGPT" },
   ];
-
-  // toggle mobile nav visibility on / off
-  const toggleMobileNav = () => {
-    const toggleTo = mobileNavDisplay === "none" ? "flex" : "none";
-    setMobileNavDisplay(toggleTo);
-  };
 
   // handle change of searchTearm
   const handleSearchTopicChange = (topic) => {
@@ -136,11 +131,11 @@ const Navigation = ({ handleSearchChange }) => {
 
         {/* Mobile - Hamburger Button */}
         <IconButton
-          icon={<HamburgerIcon />}
+          icon={navIsOpen ? <CloseIcon /> : <HamburgerIcon />}
           size="lg"
           mr={2}
           display={["flex", "flex", "none", "none"]}
-          onClick={toggleMobileNav}
+          onClick={() => setNavIsOpen((prev) => !prev)}
           margin="0"
           colorScheme="teal"
         />
