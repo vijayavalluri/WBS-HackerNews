@@ -30,7 +30,7 @@ function App() {
     // fetch data from API
     axios
       .get(
-        `http://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=${numberOfPages}&query=${searchTerm}&page=${currentPage}`
+        `https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=${numberOfPages}&query=${searchTerm}&page=${currentPage}`
       )
       .then((res) => {
         setIsLoading(false);
